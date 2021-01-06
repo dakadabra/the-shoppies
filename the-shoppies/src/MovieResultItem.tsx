@@ -14,7 +14,7 @@ export const MovieResultItem: React.FC<Props> = ({ movie, nominateMovie }) => {
             {movie.title + " (" + movie.year + ") "}
             <button
                 type="submit"
-                // enabled={movie.nominated}
+                disabled={movie.nominated}
                 onClick={() => {
                     nominateMovie(movie);
             }}

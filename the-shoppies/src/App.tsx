@@ -9,19 +9,24 @@ Done:
 - Add three containers + text
 - Add nominate buttons
 - Call addNomination with nomination button
-
-Todo:
 - Add remove functionality
 - Disable Nominate button
+- Shopify icon logo on tab
+
+Todo:
 - Add magnifying class
 - Add api searches
-- Shopify icon logo on tab
+- Add recent searches
+
+To check
+- Movie duplicates
 
 - Add functionality to momentarily toggle nominated movies
 - Find better way to style objects
 - Write "The Shoppies" in shopify font
 - Full screen is "The Shoppies"
 - Add instructions
+
 */
 
 const initialNominations: MovieNomination[] = [];
@@ -90,8 +95,8 @@ function App() {
 
   const removeMovie = (chosenMovie: MovieNomination) => {
     chosenMovie.nominated = false;
-    //TODO: REMOVE MOVIE
-    setNominations([...nominations]);
+    const filteredist = nominations.filter((movie) => movie !== chosenMovie);
+    setNominations(filteredist);
     setNominationCount(nominationCount-1);
   };
   
