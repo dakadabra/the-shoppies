@@ -16,7 +16,7 @@ export const MovieNominationItem: React.FC<Props> = ({ movie, removeMovie }) => 
                 type="submit"
                 onClick={() => {
                     removeMovie(movie);
-            }}
+                }}
             >
                 Remove
             </button>

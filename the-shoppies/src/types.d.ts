@@ -1,7 +1,7 @@
 interface MovieNomination {
     title: string;
     year: number;
-    nominated: boolean;
+    imdbID: string;
 }
 
 type NominateMovie = (chosenMovie: MovieNomination) => void;
