@@ -1,0 +1,8 @@
+.movieContainer {
+    padding: 0 50px;
+}
+
+.mainContainer {
+    display: flex;
+    flex-wrap: wrap;
+ }
