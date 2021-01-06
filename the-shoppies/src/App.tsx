@@ -11,10 +11,10 @@ Done:
 - Shopify icon logo on tab
 - Add api searches
 - Disable Nominate button
+- Display a banner at 5 nominations
 
 Todo:
 - Add error possibility cases (from resource)
-- Display a banner at 5 nominations
 
 To check
 - Movie duplicates
@@ -43,7 +43,6 @@ const initialNominations: MovieNomination[] = [];
 
 function App() {
   const [nominations, setNominations] = useState(initialNominations);
-  const [searchText, setSearchText] = useState('');
   const [nominationCount, setNominationCount] = useState(0); //TODO: Is this the best style?
 
   //if the movie has not already been nominated and there are less than 5 nominations, nominate it
@@ -65,13 +64,13 @@ function App() {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [q, setQuery] = useState('shop');
+  const [queryText, setQuery] = useState('shop');
 
   useEffect(() => {
       setLoading(true);
       setError(null);
       setData([]);
-      fetch(`http://www.omdbapi.com/?s=${q}&apikey=${API_KEY}`)
+      fetch(`http://www.omdbapi.com/?s=${queryText}&apikey=${API_KEY}`)
       .then(resp => resp)
       .then(resp => resp.json())
       .then(response => {
@@ -89,8 +88,7 @@ function App() {
           setLoading(false);
       })
 
-  }, [q]);
-
+  }, [queryText]);
 
   interface Props {
     Title: string;
@@ -131,7 +129,7 @@ function App() {
 
       <div className="mainContainer">
         <div className="movieContainer">
-          <h2>Results for "{searchText}"</h2>
+          <h2>Results for "{queryText}"</h2>
           { data !== null && data.length > 0 && data.map((result, index) => (
             <MovieResultItem key={index} nominateMovie={nominateMovie} {...result} />
           ))}
@@ -142,6 +140,7 @@ function App() {
           <NominationsList nominations={nominations} removeMovie={removeMovie} />
         </div>
       </div>
+      {nominationCount === 5 && <p>You have already nominated 5 movies, which is the maximum allowed!</p>}
     </>
   );
 }
