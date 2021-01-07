@@ -8,10 +8,10 @@ interface Props {
 
 export const NominationsList: React.FC<Props> = ({ nominations, removeMovie }) => {
   return (
-    <ul>
+    <div className="movieListContainer">
       {nominations.map(movie => (
-        <MovieNominationItem key={movie.title} movie={movie} removeMovie={removeMovie} />
+        <MovieNominationItem key={movie.Title} movie={movie} removeMovie={removeMovie} />
       ))}
-    </ul>
+    </div>
   );
 };

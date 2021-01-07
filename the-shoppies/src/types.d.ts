@@ -1,6 +1,7 @@
 interface MovieNomination {
-    title: string;
-    year: number;
+    Title: string;
+    Year: number;
+    Poster: string;
     imdbID: string;
 }
 

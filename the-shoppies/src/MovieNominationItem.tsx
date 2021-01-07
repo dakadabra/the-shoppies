@@ -7,21 +7,20 @@ interface Props {
 
 export const MovieNominationItem: React.FC<Props> = ({ movie, removeMovie }) => {
   return (
-    <>
-        <br/>
-        <li>
-        <label>
-            {movie.title + " (" + movie.year + ") "}
-            <button
-                type="submit"
-                onClick={() => {
-                    removeMovie(movie);
-                }}
-            >
-                Remove
-            </button>
-        </label>
-        </li>
-    </>
+    <div className="singleMovie">
+        {movie.Title + " (" + movie.Year + ") "}
+        <button
+            type="submit"
+            onClick={() => {
+                removeMovie(movie);
+            }}
+        >
+            Remove
+        </button>
+        <img className="poster"
+            alt={movie.Title}
+            src={movie.Poster === 'N/A' ? 'https://placehold.it/198x264&text=Image+Not+Found' : movie.Poster}
+        />
+    </div>
   );
 };

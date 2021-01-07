@@ -12,17 +12,19 @@ Done:
 - Add api searches
 - Disable Nominate button
 - Display a banner at 5 nominations
+- Add error banner
 
 Todo:
 - Add error possibility cases (from resource)
 
 To check
-- Movie duplicates
 
 Bonus
+- I love it! vs Don't like it anymore :(
 - Add images
 - Add functionality to momentarily toggle nominated movies
 - Add recent searches
+
 - Save nomination lists if the user leaves the page
 - Animations for loading, adding/deleting movies, notifications
 - Create shareable links
@@ -93,32 +95,38 @@ function App() {
   interface Props {
     Title: string;
     Year: number;
+    Poster: string;
     imdbID: string;
     nominated: boolean;
     nominateMovie: NominateMovie;
   }
   
-  const MovieResultItem: React.FC<Props> = ({Title, Year, imdbID, nominateMovie }) => {
+  const MovieResultItem: React.FC<Props> = ({Title, Year, Poster, imdbID, nominateMovie }) => {
     return (
-      <>
-          <br/>
-          <li>
-          <label>
-              {Title + " (" + Year + ") "}
-              <button
-                type="submit"
-                disabled={nominations.some(item => imdbID === item.imdbID)}
-                onClick={() => {
-                    nominateMovie({title: Title, year: Year, imdbID});
-                }}
-              >
-                Nominate
-              </button>
-          </label>
-          </li>
-      </>
+      <div className="singleMovie">
+        {Title + " (" + Year + ") "}
+        <button
+          type="submit"
+          disabled={nominations.some(item => imdbID === item.imdbID)}
+          onClick={() => {
+              nominateMovie({Title, Year, Poster, imdbID});
+          }}
+        >
+          Nominate
+        </button>
+        <img className="poster"
+          alt={Title}
+          src={Poster === 'N/A' ? 'https://placehold.it/198x264&text=Image+Not+Found' : Poster}
+        />
+      </div>
     );
   };
+
+  // const Loader = () => (
+  //   <div style={{margin: '20px 0', textAlign: 'center'}}>
+  //       <Spin />
+  //   </div>
+  // )
 
   return (
     <>
@@ -127,19 +135,31 @@ function App() {
         <SearchBar setSearchText={value => setQuery(value)} />
       </div>
 
-      <div className="mainContainer">
-        <div className="movieContainer">
-          <h2>Results for "{queryText}"</h2>
+
+      <div>
+        <h2>Nominations</h2>
+        <NominationsList nominations={nominations} removeMovie={removeMovie} />
+      </div>
+
+      {/* <div className="mainContainer"> */}
+      <h2>Results for "{queryText}"</h2>
+        <div className="movieListContainer">
+          { loading && <h1>I'm loading</h1>
+              // <iframe src="https://giphy.com/embed/3oEjI6SIIHBdRxXI40" width="480" height="480" frameBorder="0" title="loading_gif" allowFullScreen></iframe>
+          }
+
+          { error !== null &&
+              <div style={{margin: '20px 0'}}>
+                  {error}
+              </div>
+          }
+          
           { data !== null && data.length > 0 && data.map((result, index) => (
             <MovieResultItem key={index} nominateMovie={nominateMovie} {...result} />
           ))}
         </div>
 
-        <div className="movieContainer">
-          <h2>Nominations</h2>
-          <NominationsList nominations={nominations} removeMovie={removeMovie} />
-        </div>
-      </div>
+      {/* </div> */}
       {nominationCount === 5 && <p>You have already nominated 5 movies, which is the maximum allowed!</p>}
     </>
   );
