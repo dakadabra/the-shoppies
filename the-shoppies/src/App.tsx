@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NominationsList } from './NominationsList';
 import { SearchBar } from './SearchBar';
+import './styles.css';
 
 /*
 Done:
