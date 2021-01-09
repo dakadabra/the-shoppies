@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/theShoppies2021/static/js/main.17c24dad.chunk.js",
-    "main.js.map": "/theShoppies2021/static/js/main.17c24dad.chunk.js.map",
+    "main.js": "/theShoppies2021/static/js/main.65015ee5.chunk.js",
+    "main.js.map": "/theShoppies2021/static/js/main.65015ee5.chunk.js.map",
     "runtime-main.js": "/theShoppies2021/static/js/runtime-main.492ee33f.js",
     "runtime-main.js.map": "/theShoppies2021/static/js/runtime-main.492ee33f.js.map",
     "static/js/2.34881381.chunk.js": "/theShoppies2021/static/js/2.34881381.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.492ee33f.js",
     "static/js/2.34881381.chunk.js",
-    "static/js/main.17c24dad.chunk.js"
+    "static/js/main.65015ee5.chunk.js"
   ]
 }
