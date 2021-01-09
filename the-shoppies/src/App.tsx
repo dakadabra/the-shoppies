@@ -130,9 +130,9 @@ function App() {
   // )
 
   return (
-    <>
+    <div className="bigContainer">
       <div>
-        <h2>Movie title</h2>
+        <h2>Look up your top movies!</h2>
         <SearchBar setSearchText={value => setQuery(value)} />
       </div>
 
@@ -162,7 +162,7 @@ function App() {
 
       {/* </div> */}
       {nominationCount === 5 && <p>You have already nominated 5 movies, which is the maximum allowed!</p>}
-    </>
+    </div>
   );
 }
 
