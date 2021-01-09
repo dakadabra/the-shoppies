@@ -72,7 +72,7 @@ function App() {
       setLoading(true);
       setError(null);
       setData([]);
-      fetch(`http://www.omdbapi.com/?s=${queryText}&apikey=${API_KEY}`)
+      fetch(`https://www.omdbapi.com/?s=${queryText}&apikey=${API_KEY}`)
       .then(resp => resp)
       .then(resp => resp.json())
       .then(response => {
