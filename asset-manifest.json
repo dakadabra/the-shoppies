@@ -1,21 +1,22 @@
 {
   "files": {
-    "main.css": "/theShoppies2021/static/css/main.3d149808.chunk.css",
-    "main.js": "/theShoppies2021/static/js/main.2042422e.chunk.js",
-    "main.js.map": "/theShoppies2021/static/js/main.2042422e.chunk.js.map",
+    "main.css": "/theShoppies2021/static/css/main.e31b2ccc.chunk.css",
+    "main.js": "/theShoppies2021/static/js/main.1fbdff7a.chunk.js",
+    "main.js.map": "/theShoppies2021/static/js/main.1fbdff7a.chunk.js.map",
     "runtime-main.js": "/theShoppies2021/static/js/runtime-main.92725858.js",
     "runtime-main.js.map": "/theShoppies2021/static/js/runtime-main.92725858.js.map",
     "static/js/2.3fca3c06.chunk.js": "/theShoppies2021/static/js/2.3fca3c06.chunk.js",
     "static/js/2.3fca3c06.chunk.js.map": "/theShoppies2021/static/js/2.3fca3c06.chunk.js.map",
     "index.html": "/theShoppies2021/index.html",
-    "static/css/main.3d149808.chunk.css.map": "/theShoppies2021/static/css/main.3d149808.chunk.css.map",
+    "static/css/main.e31b2ccc.chunk.css.map": "/theShoppies2021/static/css/main.e31b2ccc.chunk.css.map",
     "static/js/2.3fca3c06.chunk.js.LICENSE.txt": "/theShoppies2021/static/js/2.3fca3c06.chunk.js.LICENSE.txt",
-    "static/media/loading.0332057f.gif": "/theShoppies2021/static/media/loading.0332057f.gif"
+    "static/media/loading.0332057f.gif": "/theShoppies2021/static/media/loading.0332057f.gif",
+    "static/media/shopify_logo.1e72e870.png": "/theShoppies2021/static/media/shopify_logo.1e72e870.png"
   },
   "entrypoints": [
     "static/js/runtime-main.92725858.js",
     "static/js/2.3fca3c06.chunk.js",
-    "static/css/main.3d149808.chunk.css",
-    "static/js/main.2042422e.chunk.js"
+    "static/css/main.e31b2ccc.chunk.css",
+    "static/js/main.1fbdff7a.chunk.js"
   ]
 }
