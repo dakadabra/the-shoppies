@@ -3,6 +3,7 @@ import { NominationsList } from './NominationsList';
 import { SearchBar } from './SearchBar';
 import './styles.css';
 import load from './loading.gif'
+
 // import "babel-polyfill";
 // import SimpleStorage from "react-simple-storage";
 // import {loadState, saveState} from './localStorage';
@@ -22,16 +23,16 @@ Done:
 - Display a banner at 5 nominations
 - Add error banner
 - Write "The Shoppies" in shopify font
+- Add error possibility cases (from resource)
 
 Todo:
-- Add error possibility cases (from resource)
+- long movie names
 
 To check
 
 Bonus
 - I love it! vs Don't like it anymore :(
 - Add images
-- Add functionality to momentarily toggle nominated movies
 - Add recent searches
 
 - Save nomination lists if the user leaves the page
@@ -148,8 +149,9 @@ function App() {
         {/* <SimpleStorage parent={this} /> */}
 
 
-      <div>
+      <div className="searchResults">
         <h2>Nominations</h2>
+        {nominationCount === 0 && <h3>Nominate a movie below</h3>}
         <NominationsList nominations={nominations} removeMovie={removeMovie} />
       </div>
 
@@ -161,9 +163,9 @@ function App() {
           }
 
           { error !== null &&
-              <div style={{margin: '20px 0'}}>
+              <h3>
                   {error}
-              </div>
+              </h3>
           }
           
           { data !== null && data.length > 0 && data.map((result, index) => (
@@ -172,7 +174,10 @@ function App() {
         </div>
 
       {/* </div> */}
-      {nominationCount === 5 && <p>You have already nominated 5 movies, which is the maximum allowed!</p>}
+      {nominationCount === 5 && <>
+      <div className="spacer"/>
+      <div className="footer">You have already nominated 5 movies, which is the maximum allowed!</div>
+      </>}
     </div>
   );
 }

@@ -14,7 +14,8 @@
     justify-content: center;
     margin-bottom: 15px;
    }
-  
+
+
   .movieListContainer {
     padding: 0 50px;
     display: flex;
@@ -60,6 +61,34 @@
     background-color: grey;
   }
 
+  .footer {
+      background-color: #2B4C40;
+      font-size: 20px;
+      color: white;
+      border-top: 1px solid #E7E7E7;
+      text-align: center;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      height: 60px;
+      line-height: 60px;
+      width: 100%;
+  }
+
+.spacer {
+  margin-top: 60px;
+}
+
+  h2 {
+    font-family: ProximaNovaLight, Helvetica Neue, Helvetica, Arial, sans-serif;
+    margin: 5px;
+    padding-left: 30px;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
   /* searchbar stuff */
   
   .topnav {
@@ -83,14 +112,8 @@
   .topnav .search-container button {
     padding: 6px 10px;
     margin-right: 16px;
-    background: #ddd;
+    background: darkgray;
     font-size: 17px;
     border: none;
     cursor: pointer;
-  }
-
-  h2 {
-    font-family: ProximaNovaLight, Helvetica Neue, Helvetica, Arial, sans-serif;
-    margin: 5px;
-    padding-left: 30px;
   }
