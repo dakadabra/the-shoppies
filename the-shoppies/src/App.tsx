@@ -1,51 +1,9 @@
-import React, { useState, useEffect, StrictMode } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NominationsList } from './NominationsList';
 import { SearchBar } from './SearchBar';
 import './styles.css';
 import load from './loading.gif'
-
-// import "babel-polyfill";
-// import SimpleStorage from "react-simple-storage";
-// import {loadState, saveState} from './localStorage';
-/*
-Some of the code for using the OMDB API was inspired by: https://webomnizz.com/react-hooks-and-omdb-api-example/
-*/
-
-/*
-Done:
-- Add three containers + text
-- Add nominate buttons
-- Call addNomination with nomination button
-- Add remove functionality
-- Shopify icon logo on tab
-- Add api searches
-- Disable Nominate button
-- Display a banner at 5 nominations
-- Add error banner
-- Write "The Shoppies" in shopify font
-- Add error possibility cases (from resource)
-
-Todo:
-- long movie names
-
-To check
-
-Bonus
-- I love it! vs Don't like it anymore :(
-- Add images
-- Add recent searches
-
-- Save nomination lists if the user leaves the page
-- Animations for loading, adding/deleting movies, notifications
-- Create shareable links
-
-Aesthetics
-- Find better way to style objects
-- Full screen is "The Shoppies"
-- Add instructions
-- This movie has not been created yet, maybe you should give it a shot?
-
-*/
+import shopifyLogo from './shopify_logo.png'
 
 
 const API_KEY = '9fefc733';
@@ -111,7 +69,8 @@ function App() {
   const MovieResultItem: React.FC<Props> = ({Title, Year, Poster, imdbID, nominateMovie }) => {
     return (
       <div className="singleMovie">
-        {Title + " (" + Year + ") "}
+        <div className="title">{Title}</div>
+        {" (" + Year + ") "}
         <img className="poster"
           alt={Title}
           src={Poster === 'N/A' ? 'https://placehold.it/198x264&text=Image+Not+Found' : Poster}
@@ -129,24 +88,21 @@ function App() {
     );
   };
 
-  // const Loader = () => (
-  //   <div style={{margin: '20px 0', textAlign: 'center'}}>
-  //       <Spin />
-  //   </div>
-  // )
-
-  // this.subscribe(() => {
-  //   saveState(nominations.getState());
-  // })
-
   return (
     <div className="bigContainer">
+      <div className="landingPage">
+        <h4>Welcome to the 2021</h4>
+        <div className="shoppiesText">
+          <img className="shopifyLogo" alt="shopifyLogo" src={shopifyLogo}/>
+          <h1>shoppies</h1>
+        </div>
+        <h4>Movie Awards</h4>
+      </div>
       <div className="searchContainer">
         <h2>Nominate your 5 favourite movies of all time.</h2>
         <h2>Good luck with your nominations, and see you at the awards show!</h2>
         <SearchBar setSearchText={value => setQuery(value)} />
       </div>
-        {/* <SimpleStorage parent={this} /> */}
 
 
       <div className="searchResults">
@@ -155,7 +111,6 @@ function App() {
         <NominationsList nominations={nominations} removeMovie={removeMovie} />
       </div>
 
-      {/* <div className="mainContainer"> */}
       <h2>Results for "{queryText}"</h2>
         <div className="movieListContainer">
           { loading && 
@@ -173,7 +128,6 @@ function App() {
           ))}
         </div>
 
-      {/* </div> */}
       {nominationCount === 5 && <>
       <div className="spacer"/>
       <div className="footer">You have already nominated 5 movies, which is the maximum allowed!</div>
