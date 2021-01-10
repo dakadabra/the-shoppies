@@ -17,7 +17,7 @@ export const SearchBar: React.FC<Props> = ({setSearchText}) => {
           <a href="#contact">
             <div className="search-container">
                 <form action="/action_page.php">
-                <input type="text" placeholder="Search.." name="search" value={text}
+                <input type="text" placeholder="Search.." name="search" value={text} 
                     onChange={e => {
                     setText(e.target.value);
                     }}/>

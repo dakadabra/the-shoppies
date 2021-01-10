@@ -111,6 +111,10 @@ function App() {
     return (
       <div className="singleMovie">
         {Title + " (" + Year + ") "}
+        <img className="poster"
+          alt={Title}
+          src={Poster === 'N/A' ? 'https://placehold.it/198x264&text=Image+Not+Found' : Poster}
+        />
         <button
           type="submit"
           disabled={nominations.some(item => imdbID === item.imdbID)}
@@ -120,10 +124,6 @@ function App() {
         >
           Nominate
         </button>
-        <img className="poster"
-          alt={Title}
-          src={Poster === 'N/A' ? 'https://placehold.it/198x264&text=Image+Not+Found' : Poster}
-        />
       </div>
     );
   };
@@ -140,8 +140,9 @@ function App() {
 
   return (
     <div className="bigContainer">
-      <div>
-        <h2>Look up your top movies!</h2>
+      <div className="searchContainer">
+        <h2>Nominate your 5 favourite movies of all time.</h2>
+        <h2>Good luck with your nominations, and see you at the awards show!</h2>
         <SearchBar setSearchText={value => setQuery(value)} />
       </div>
         {/* <SimpleStorage parent={this} /> */}

@@ -3,9 +3,17 @@
    display: flex;
    flex-wrap: wrap;
    flex-direction: column;
-   /* align-items: ; */
    justify-content: space-evenly;
   }
+
+  .searchContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+   }
   
   .movieListContainer {
     padding: 0 50px;
@@ -29,18 +37,35 @@
     justify-content: space-evenly;
     width: 250px;
     height: 390px;
+    margin-bottom: 20px;
   }
   
   .poster {
     width: 200px;
     height: 280px;
   }
+
+  button {
+    background-color: #2B4C40;
+    border: none;
+    color: white;
+    padding: 12px 27px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
   
-  /* button stuff */
+  button:disabled {
+    background-color: grey;
+  }
+
+  /* searchbar stuff */
   
   .topnav {
     overflow: hidden;
-    background-color: #e9e9e9;
+    background-color: #2B4C40;
+    margin: 15px;
   }
   
   .topnav a {
@@ -66,4 +91,6 @@
 
   h2 {
     font-family: ProximaNovaLight, Helvetica Neue, Helvetica, Arial, sans-serif;
+    margin: 5px;
+    padding-left: 30px;
   }
