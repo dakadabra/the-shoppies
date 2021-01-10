@@ -1,3 +1,5 @@
+declare module 'react-simple-storage';
+
 interface MovieNomination {
     Title: string;
     Year: number;

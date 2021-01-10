@@ -5,23 +5,23 @@
    flex-direction: column;
    /* align-items: ; */
    justify-content: space-evenly;
-}
-
-.movieListContainer {
+  }
+  
+  .movieListContainer {
     padding: 0 50px;
     display: flex;
     flex-wrap: wrap;
     /* flex-direction: column; */
     align-items: center;
     justify-content: space-evenly;
-}
-
-.mainContainer {
+  }
+  
+  .mainContainer {
     display: flex;
     flex-wrap: wrap;
- }
-
- .singleMovie {
+  }
+  
+  .singleMovie {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -29,37 +29,41 @@
     justify-content: space-evenly;
     width: 250px;
     height: 390px;
- }
-
- .poster {
+  }
+  
+  .poster {
     width: 200px;
     height: 280px;
- }
+  }
+  
+  /* button stuff */
+  
+  .topnav {
+    overflow: hidden;
+    background-color: #e9e9e9;
+  }
+  
+  .topnav a {
+    float: left;
+    padding: 14px 16px;
+  }
+  
+  .topnav input[type=text] {
+    padding: 6px;
+    font-size: 17px;
+    border: none;
+    width: 70vw;
+  }
+  
+  .topnav .search-container button {
+    padding: 6px 10px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+  }
 
- /* button stuff */
-
- .topnav {
-   overflow: hidden;
-   background-color: #e9e9e9;
- }
- 
- .topnav a {
-   float: left;
-   padding: 14px 16px;
- }
- 
- .topnav input[type=text] {
-   padding: 6px;
-   font-size: 17px;
-   border: none;
-   width: 80vw;
- }
- 
- .topnav .search-container button {
-   padding: 6px 10px;
-   margin-right: 16px;
-   background: #ddd;
-   font-size: 17px;
-   border: none;
-   cursor: pointer;
- }
+  h2 {
+    font-family: ProximaNovaLight, Helvetica Neue, Helvetica, Arial, sans-serif;
+  }

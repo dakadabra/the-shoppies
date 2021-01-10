@@ -1,7 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, StrictMode } from 'react';
 import { NominationsList } from './NominationsList';
 import { SearchBar } from './SearchBar';
 import './styles.css';
+import load from './loading.gif'
+// import "babel-polyfill";
+// import SimpleStorage from "react-simple-storage";
+// import {loadState, saveState} from './localStorage';
+/*
+Some of the code for using the OMDB API was inspired by: https://webomnizz.com/react-hooks-and-omdb-api-example/
+*/
 
 /*
 Done:
@@ -14,6 +21,7 @@ Done:
 - Disable Nominate button
 - Display a banner at 5 nominations
 - Add error banner
+- Write "The Shoppies" in shopify font
 
 Todo:
 - Add error possibility cases (from resource)
@@ -31,11 +39,10 @@ Bonus
 - Create shareable links
 
 Aesthetics
-- Add magnifying class
 - Find better way to style objects
-- Write "The Shoppies" in shopify font
 - Full screen is "The Shoppies"
 - Add instructions
+- This movie has not been created yet, maybe you should give it a shot?
 
 */
 
@@ -46,7 +53,11 @@ const initialNominations: MovieNomination[] = [];
 
 function App() {
   const [nominations, setNominations] = useState(initialNominations);
-  const [nominationCount, setNominationCount] = useState(0); //TODO: Is this the best style?
+  const [nominationCount, setNominationCount] = useState(0);
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [queryText, setQuery] = useState('shop');
 
   //if the movie has not already been nominated and there are less than 5 nominations, nominate it
   const nominateMovie = (chosenMovie: MovieNomination) => {
@@ -63,12 +74,6 @@ function App() {
     setNominationCount(nominationCount-1);
   };
   
-
-  const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [queryText, setQuery] = useState('shop');
-
   useEffect(() => {
       setLoading(true);
       setError(null);
@@ -129,12 +134,17 @@ function App() {
   //   </div>
   // )
 
+  // this.subscribe(() => {
+  //   saveState(nominations.getState());
+  // })
+
   return (
     <div className="bigContainer">
       <div>
         <h2>Look up your top movies!</h2>
         <SearchBar setSearchText={value => setQuery(value)} />
       </div>
+        {/* <SimpleStorage parent={this} /> */}
 
 
       <div>
@@ -145,8 +155,8 @@ function App() {
       {/* <div className="mainContainer"> */}
       <h2>Results for "{queryText}"</h2>
         <div className="movieListContainer">
-          { loading && <h1>I'm loading</h1>
-              // <iframe src="https://giphy.com/embed/3oEjI6SIIHBdRxXI40" width="480" height="480" frameBorder="0" title="loading_gif" allowFullScreen></iframe>
+          { loading && 
+              <img src={load} alt="loading..." />
           }
 
           { error !== null &&
