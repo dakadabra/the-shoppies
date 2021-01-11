@@ -20,7 +20,7 @@ function App() {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [queryText, setQuery] = useState('shop');
+  const [queryText, setQuery] = useState('Hire me');
 
   //if the movie has not already been nominated and there are less than 5 nominations, nominate it
   const nominateMovie = (chosenMovie: MovieNomination) => {
