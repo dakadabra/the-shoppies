@@ -103,7 +103,7 @@ function App() {
         <h4>Movie Awards</h4>
       </div>
       <div className="searchContainer">
-        <h2>Nominate your 5 favourite movies of all time.</h2>
+        <h2>Use the Search bar below to find and nominate your 5 favourite movies of all time.</h2>
         <h2>Good luck with your nominations, and see you at the awards show!</h2>
         <SearchBar setSearchText={value => setQuery(value)} />
       </div>
