@@ -1,10 +1,14 @@
+/*
+OMDB API request code inspired by: https://github.com/jogeshpi03/omdb-react
+*/
+
 import React, { useState, useEffect } from 'react';
 import { NominationsList } from './NominationsList';
 import { SearchBar } from './SearchBar';
 import './styles.css';
 import load from './loading.gif'
 import shopifyLogo from './shopify_logo.png'
-
+import pageNotFound from './pageNotFound.png'
 
 const API_KEY = '9fefc733';
 
@@ -73,7 +77,7 @@ function App() {
         {" (" + Year + ") "}
         <img className="poster"
           alt={Title}
-          src={Poster === 'N/A' ? 'https://placehold.it/198x264&text=Image+Not+Found' : Poster}
+          src={Poster === 'N/A' ? pageNotFound : Poster}
         />
         <button
           type="submit"
